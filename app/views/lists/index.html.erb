@@ -1,0 +1,26 @@
+<div class="header-card-category">
+  <div class="content">Save your movies</div>
+</div>
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <div><h4>My Lists</h4></div>
+    <%= button_to "Create a new list", new_list_path, method: :get, class: "btn btn-primary" %>
+  </div>
+  <div class="cards">
+    <% if @lists.length != 0 %>
+      <% @lists.each do |list| %>
+        <%= link_to list_path(list) do %>
+          <div class="card-category">
+            <div class="content">
+              <%= list.name %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <div class="card-category-no-list bg-light p-4">
+        <div class="content">No list added yet</div>
+      </div>
+    <% end %>
+  </div>
+</div>

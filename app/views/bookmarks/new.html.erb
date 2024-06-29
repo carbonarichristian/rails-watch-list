@@ -1,0 +1,14 @@
+<div class="header-card-category">
+  <div class="content"><%= @list.name %></div>
+</div>
+<div class="container">
+  <h4>Choose your movie</h4>
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie %>
+    <div class="d-flex justify-content-between">
+      <%= f.submit class: "btn btn-success" %>
+      <%= link_to "Back", list_path(@list), method: :get %>
+    </div>
+  <% end %>
+</div>

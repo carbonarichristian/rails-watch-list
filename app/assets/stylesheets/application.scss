@@ -10,3 +10,10 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+a{
+  text-decoration: none;
+  text-decoration-color: none;
+}
+ h4{
+  margin-bottom: 10px;
+ }

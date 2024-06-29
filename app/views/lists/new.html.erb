@@ -1,0 +1,9 @@
+<div class="header-card-category">
+  <div class="content">Create your list</div>
+</div>
+<div class="container">
+<%= simple_form_for(@list) do |f| %>
+  <%= f.input :name %>
+  <%= f.submit class: "btn btn-success" %>
+<% end %>
+</div>

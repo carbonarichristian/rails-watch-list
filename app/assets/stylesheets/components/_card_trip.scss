@@ -1,0 +1,67 @@
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip .card-trip-delete{
+  font-size: small;
+}
+
+.card-trip .card-trip-infos .title{
+  align-items: center;
+  gap: 15px;
+}
+
+.card-trip .card-trip-infos .title .rating{
+  align-items: center;
+  gap: 4px;
+}
+
+.card-trip .card-trip-infos .title .rating > p{
+  font-size: x-large;
+}
+
+.card-trip .card-trip-infos .title .rating > i{
+  color: $yellow;
+}
+
+.card-trip .card-trip-footer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-trip .card-trip-footer .comment {
+  gap: 5px;
+}
+
+.card-trip .card-trip-footer .comment > p {
+  font-size: medium;
+  font-weight: bold;
+}
+
+.card-trip .card-trip-footer > a{
+  font-size: medium;
+}

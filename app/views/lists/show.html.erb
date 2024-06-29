@@ -1,0 +1,41 @@
+<div class="header-card-category">
+  <div class="content"><%= @list.name %></div>
+</div>
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <%= link_to "Delete list", list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Cancel list?"}, class: "btn btn-danger"   %>
+    <%= link_to "Add a new movie", new_list_bookmark_path(@list), method: :get, class: "btn btn-primary" %>
+  </div>
+  <div class="cards">
+    <% if @bookmarks.length != 0 %>
+      <% @bookmarks.each do |bookmark| %>
+        <div class="card-trip">
+          <img src=<%= Movie.find(bookmark.movie_id).poster_url %> />
+          <div class="card-trip-infos">
+            <div>
+              <div class="d-flex title">
+                <h2><%= Movie.find(bookmark.movie_id).title %></h2>
+                <div class="d-flex rating">
+                  <i class="fa-solid fa-star"></i>
+                  <p><%= Movie.find(bookmark.movie_id).rating %></p>
+                </div>
+              </div>
+              <p><%= Movie.find(bookmark.movie_id).overview %></p>
+            </div>
+          </div>
+          <div class="card-trip-footer px-3">
+            <div class="card-trip-footer comment d-flex">
+              <i class="fa-solid fa-quote-left"></i>
+              <p><%= bookmark.comment %></p>
+            </div>
+            <%= link_to "delete", bookmark_path(bookmark), class: "card-trip-delete", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="card-category-no-list bg-light p-4">
+        <div class="content">No bookmark added yet</div>
+      </div>
+    <% end %>
+  </div>
+</div>
