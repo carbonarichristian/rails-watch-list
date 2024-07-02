@@ -1,5 +1,5 @@
 class BookmarksController < ApplicationController
-  before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
+  before_action :set_bookmark, only: [:show, :destroy]
 
   def index
     @bookmarks = Bookmark.where(list_id: params[:id])
@@ -17,7 +17,6 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    raise
     @list = List.find(params[:list_id])
     @movie = Movie.find(params[:bookmark][:movie_id])
     @bookmark = Bookmark.new(bookmark_params)
@@ -28,14 +27,6 @@ class BookmarksController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def edit
-  end
-
-  def update
-    @bookmark.update(bookmark_params)
-    redirect_to bookmark_path(@bookmark)
   end
 
   def destroy
