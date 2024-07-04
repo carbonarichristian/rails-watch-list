@@ -10,7 +10,8 @@
     <% if @lists.length != 0 %>
       <% @lists.each do |list| %>
         <%= link_to list_path(list) do %>
-          <div class="card-category">
+          <% background_img = list.picture.attached? ? cl_image_path(list.picture.key, height: 300, crop: :fill) : image_url("ticket-2974645_1920.jpg") %>
+          <div class="card-category" style="background-image: url(<%= background_img %>)">
             <div class="content">
               <%= list.name %>
             </div>

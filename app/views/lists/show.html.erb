@@ -1,4 +1,5 @@
-<div class="header-card-category">
+<% background_img = @list.picture.attached? ? cl_image_path(@list.picture.key, height: 300, crop: :fill) : image_url("ticket-2974645_1920.jpg") %>
+<div class="header-card-category" id="home-cinema" style="background-image: url(<%= background_img %>)">
   <div class="content"><%= @list.name %></div>
 </div>
 <div class="container">
